@@ -27,7 +27,7 @@ if (choice == "2D")
     double y2 = double.Parse(Console.ReadLine());
     Console.WriteLine("Расстояние между точками: " + Distance2D(x1, y1, x2, y2) + ".");
 }
-else
+else if (choice == "3D")
 {
     Console.Write("Введите координату x1: ");
     double x1 = double.Parse(Console.ReadLine());
@@ -44,3 +44,4 @@ else
     
     Console.WriteLine("Расстояние между точками: " + Distance3D(x1, y1, z1, x2, y2, z2) + ".");
 }
+else Console.Write("Введен некорректный запрос!: ");

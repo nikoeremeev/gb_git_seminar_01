@@ -14,7 +14,6 @@ else
     {
         count++;
         num /= 10;
-        Console.WriteLine(num);
     }
 }
 Console.Write("количество цифр в числе = " + count);

@@ -6,7 +6,7 @@ int number = int.Parse(Console.ReadLine());
 int temporary = number;
 int reverse_number = 0;
 
-while(number != 0)
+while (number != 0)
 {
     int last_digit = number % 10;
     reverse_number = reverse_number * 10 + last_digit;

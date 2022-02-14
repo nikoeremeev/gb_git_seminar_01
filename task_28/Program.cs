@@ -8,21 +8,21 @@ Console.WriteLine();
 Console.Write("Полученный массив: [ ");
 for (int i = 0; i < 10; i++)
 {
-    array[i] = new Random().Next(0,100);
+    array[i] = new Random().Next(0,10);
     Console.Write(array[i] + " ");
 }
 Console.WriteLine("]");
 Console.WriteLine();
-int flag = 0;
+bool flag = false;
 for (int i = 0; i < 10; i++)
 {
     if (array[i] == N)
     {
-        flag = 1;
+        flag = true;
     }
     
 }
-if (flag == 1)
+if (flag)
 {
     Console.WriteLine("Встречается.");
 }

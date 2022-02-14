@@ -9,11 +9,11 @@ int i = 1;
 Console.WriteLine();
 Console.Write("Кубы чисел, заканчивающихся на четную цифру: ");
 while (count < N)
-{   
-    if ((i*i*i) % 2 == 0)
+{
+    if (((i * i * i) % 10) % 2 == 0)
     {
         count++;
-        Console.Write(i*i*i + " ");
+        Console.Write(i * i * i + " ");
         i++;
     }
     else i++;

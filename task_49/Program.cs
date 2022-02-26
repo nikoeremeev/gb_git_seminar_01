@@ -19,8 +19,8 @@ Console.WriteLine();
 int[] temp = new int[n];
 for (int i = 0; i < n; i++)
 {
-    temp[i] = array[m, i];
-    array[m, i] = array[0, i];
+    temp[i] = array[m-1, i];
+    array[m-1, i] = array[0, i];
     array[0, i] = temp[i];
 }
 for (int i = 0; i < m; i++)

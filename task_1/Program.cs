@@ -1,4 +1,6 @@
 ﻿// Задача 2: Даны два числа. Показать большее и меньшее число
+
+
 Console.Write("Введите первое число: ");
 int numberA = int.Parse(Console.ReadLine());
 

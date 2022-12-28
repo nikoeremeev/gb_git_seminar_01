@@ -1,16 +1,14 @@
-﻿// Задача №17: По двум заданным числам проверять является ли одно квадратом другого.
+﻿// Задача №10: Показать вторую цифру трёхзначного числа.
 
-Console.Write("Введите первое число: ");
-int numA = int.Parse(Console.ReadLine());
 
-Console.Write("Введите второе число: ");
-int numB = int.Parse(Console.ReadLine());
+Console.Write("Введите трехзначное число: ");
 
-if (numA * numA == numB || numB * numB == numA)
+int num = int.Parse(Console.ReadLine());
+if (num > 99 && num < 1000)
 {
-    Console.WriteLine("Является.");
+    Console.WriteLine("Вторая цифра числа " + num + " равна " + num / 10 % 10 + ".");
 }
 else
 {
-    Console.WriteLine("Не является.");
+    Console.WriteLine("Введите трехзначное число!");
 }

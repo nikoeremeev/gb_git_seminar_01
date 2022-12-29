@@ -1,15 +1,16 @@
-﻿// Задача №24: Найти кубы чисел от 1 до N.
+﻿// Задача №17: По двум заданным числам проверять является ли одно квадратом другого.
 
-Console.Write("Введите число N = ");
-int N = int.Parse(Console.ReadLine());
-Console.Write("Числа" + "\t");
-for (int i = 1; i <= N; i++)
+Console.Write("Введите первое число: ");
+int numA = int.Parse(Console.ReadLine());
+
+Console.Write("Введите второе число: ");
+int numB = int.Parse(Console.ReadLine());
+
+if (numA * numA == numB || numB * numB == numA)
 {
-    Console.Write(i + "\t");
+    Console.WriteLine("Является.");
 }
-Console.WriteLine();
-Console.Write("Кубы" + "\t");
-for (int i = 1; i <= N; i++)
+else
 {
-    Console.Write(i*i*i + "\t");
+    Console.WriteLine("Не является.");
 }

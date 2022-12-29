@@ -1,23 +1,22 @@
-﻿// Задача №21: Программа проверяет пятизначное число на палиндромом.
+﻿// Задача №14: Найти третью цифру числа или сообщить, что её нет.
 
-Console.Write("Введите пятизначное число: ");
-int number = int.Parse(Console.ReadLine());
 
-int temporary = number;
-int reverse_number = 0;
+Console.Write("Введите число: ");
 
-while (number != 0)
+int num = int.Parse(Console.ReadLine());
+int Count = 0;
+int numbercount = num;
+while (numbercount != 0)
 {
-    int last_digit = number % 10;
-    reverse_number = reverse_number * 10 + last_digit;
-    number = number / 10;
+    numbercount /= 10;
+    Count++;
 }
-
-if (reverse_number == temporary)
+if (Count >= 3)
 {
-    Console.WriteLine("Число " + temporary + " является палиндромом.");
+    int number = (num / ((int)Math.Pow(10, (-1 * (3 - Count))))) % 10;
+    Console.WriteLine("У числа " + num + " третья цифра равна " + number + ".");
 }
 else
 {
-    Console.WriteLine("Число " + temporary + " НЕ является палиндромом.");
+    Console.WriteLine("У числа " + num + " НЕТ третьей цифры.");
 }

@@ -1,25 +1,7 @@
-﻿// Задача №20: Задать номер четверти, показать диапазоны для возможных координат.
+﻿// Задача №13: Выяснить, кратно ли число заданному, если нет, вывести остаток.
 
-Console.Write("Введите номер четверти (от 1 до 4 включительно): ");
-int number = int.Parse(Console.ReadLine());
-
-if (number == 1)
-{
-    Console.WriteLine("Диапазон возможных координат для " + number + " четверти: X > 0, Y > 0.");
-}
-else if (number == 2)
-{
-    Console.WriteLine("Диапазон возможных координат для " + number + " четверти: X < 0, Y > 0.");
-}
-else if (number == 3)
-{
-    Console.WriteLine("Диапазон возможных координат для " + number + " четверти: X < 0, Y < 0.");
-}
-else if (number == 4)
-{
-    Console.WriteLine("Диапазон возможных координат для " + number + " четверти: X > 0, Y < 0.");
-}
-else
-{
-    Console.WriteLine("Введите корректный номер четверти от 1 до 4 включительно!");
-}
+int a = 3;
+Console.Write("Введите число: ");
+int b = int.Parse(Console.ReadLine());
+if (b % a == 0) Console.WriteLine("Число кратно трем.");
+else Console.WriteLine($"Число не кратно трем, остаток равен {b % a}.");

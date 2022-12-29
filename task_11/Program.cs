@@ -1,22 +1,26 @@
-﻿// Задача №18: Проверить истинность утверждения ¬(X ⋁ Y) = ¬X ⋀ ¬Y.
+﻿// Задача №11: Дано число из отрезка [10, 99]. Показать наибольшую цифру числа.
 
-bool X1 = false;
-bool Y1 = false;
+Console.Write("Введите число из отрезка [10, 99]: ");
 
-bool X2 = false;
-bool Y2 = true;
-
-bool X3 = true;
-bool Y3 = false;
-
-bool X4 = true;
-bool Y4 = true;
-
-if ( (!(X1 || Y1) == !X1 && !Y1) && (!(X2 || Y2) == !X2 && !Y2) && (!(X3 || Y3) == !X3 && !Y3) && (!(X4 || Y4) == !X4 && !Y4))
+int num = int.Parse(Console.ReadLine());
+if (num > 9 && num < 100)
 {
-    Console.WriteLine("Утверждение -  истинно.");
+    if (num / 10 > num % 10)
+    {
+        Console.WriteLine("Наибольшая цифра числа " + num + " равна " +
+            num / 10 + ".");
+    }
+    else if (num / 10 < num % 10)
+    {
+        Console.WriteLine("Наибольшая цифра числа " + num + " равна " +
+            num % 10 + ".");
+    }
+    else
+    {
+        Console.WriteLine("Цифры в числе " + num + " равны!");
+    }
 }
 else
 {
-    Console.WriteLine("Утверждение -  ложно.");
+    Console.WriteLine("Введите число из отрезка [10, 99]!!!");
 }

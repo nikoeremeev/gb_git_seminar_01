@@ -1,25 +1,24 @@
-﻿// Задача №44: Найти точку пересечения двух прямых заданных уравнением:
-// y = k1 * x + b1, y = k2 * x + b2, если b1, k1, b2 и k2 заданы.
+﻿// Задача №37: 
+// В одномерном массиве из 123 чисел найти количество 
+// элементов из отрезка [10,99].
 
-double[] LineParam(string parametrs)
+Console.Clear();
+int[] array = new int[123];
+Console.WriteLine();
+Console.Write("Полученный массив: [ ");
+for (int i = 0; i < 123; i++)
 {
-    string[] perem = parametrs.Split(' ');
-    double[] param = new double[perem.Length];
-    for (int i = 0; i < perem.Length; i++) param[i] = double.Parse(perem[i]);
-    return param;
+    array[i] = new Random().Next(0, 200);
+    Console.Write(array[i] + " ");
 }
-
-Console.Write("Введите через пробел парамеры первой прямой y = k1 * x + b1 (например: k1 b1): ");
-string parametrs = Console.ReadLine();
-double[] ex1 = LineParam(parametrs);
-Console.Write("Введите через пробел парамеры второй прямой y = k2 * x + b2 (например:k2 b2): ");
-parametrs = Console.ReadLine();
-double[] ex2 = LineParam(parametrs);
-double[] point = new double[2];
-if (ex1[0] == ex2[0]) Console.WriteLine("Прямые паралелльны, т.к. к1 равно к2.");
-else
+Console.WriteLine("]");
+Console.WriteLine();
+int count = 0;
+for (int i = 0; i < 123; i++)
 {
-    point[0] = (ex2[1] - ex1[1]) / (ex1[0] - ex2[0]); // (b2-b1)/(k1-k2)
-    point[1] = (ex1[0] * ((ex2[1] - ex1[1]) / (ex1[0] - ex2[0])) + ex1[0]); // k1 * ((b2-b1)/(k1-k2)) + b1
-    Console.WriteLine($"Точка пересечения ({point[0]}, { point[1]})");
+    if ((10 <= array[i]) && (array[i] <= 99))
+    {
+        count++;
+    }
 }
+Console.WriteLine("Элементы из отрезка [10,99] встречаются " + count + " раз");

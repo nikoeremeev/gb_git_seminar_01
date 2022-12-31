@@ -1,20 +1,24 @@
-﻿Random rand = new Random();
-            Console.Write("введите минимальное значение: ");  // введите минимальное значение
-            int min = int.Parse(Console.ReadLine());
-            Console.Write("введите максимальное значение: "); // введите максимальное значение
-            int max = int.Parse(Console.ReadLine());
-            Console.Write("введите количество строк массива: "); // введите количество строк массива
-            int m = int.Parse(Console.ReadLine());
-            Console.Write("введите количество столбцов массива: "); // введите количество столбцов массива
-            int n = int.Parse(Console.ReadLine());
-            double[,] arr = new double[m, n];
-            Console.WriteLine("массив:"); // массив
-            for (int i = 0; i < m; i++)
-            {
-                for (int k = 0; k < n; k++)
-                {
-                    arr[i, k] = Math.Round((rand.Next(min, max + 1)) * 1.1, 2);
-                    Console.Write(arr[i, k] + "\t");
-                }
-                Console.WriteLine();
-            }
+﻿// Задача №38: 
+// Найти сумму чисел одномерного массива, стоящих на нечётной позиции.
+
+Console.Write("Введите размер массива: ");
+int N = int.Parse(Console.ReadLine());
+int[] array = new int[N];
+Console.WriteLine();
+Console.Write("Полученный массив: [ ");
+for (int i = 0; i < N; i++)
+{
+    array[i] = new Random().Next(0, 10);
+    Console.Write(array[i] + " ");
+}
+Console.WriteLine("]");
+Console.WriteLine();
+
+int summ = 0;
+
+for (int i = 1; i < N; i += 2)
+{
+    summ += array[i];
+}
+Console.WriteLine($"Сумма чисел одномерного массива, " +
+    "стоящих на нечётной позиции равна: {summ}");

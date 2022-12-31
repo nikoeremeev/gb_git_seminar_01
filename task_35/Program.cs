@@ -1,11 +1,32 @@
-﻿// Задача №42: Определить, сколько чисел больше 0 введено с клавиатуры.
+﻿// Задача №35: Определить, присутствует ли в заданном массиве, некоторое число.
 
-Console.Write("Введите через пробел числа: ");
-string numbers = Console.ReadLine();
-string[] numbers_array = numbers.Split(' ');
-int count = 0;
-for (int i = 0; i < numbers_array.Length; i++)
+Console.Clear();
+Console.Write("Введите число: ");
+int N = int.Parse(Console.ReadLine());
+int[] array = new int[12];
+Console.WriteLine();
+Console.Write("Полученный массив: [ ");
+for (int i = 0; i < 10; i++)
 {
-    if (int.Parse(numbers_array[i]) > 0) count++;
+    array[i] = new Random().Next(0, 10);
+    Console.Write(array[i] + " ");
 }
-Console.WriteLine($"Количество чисел больше 0 введенных с клавиатуры равно {count}.");
+Console.WriteLine("]");
+Console.WriteLine();
+bool flag = false;
+for (int i = 0; i < 10; i++)
+{
+    if (array[i] == N)
+    {
+        flag = true;
+    }
+
+}
+if (flag)
+{
+    Console.WriteLine("Встречается.");
+}
+else
+{
+    Console.WriteLine("НЕ встречается.");
+}

@@ -1,27 +1,13 @@
-﻿// Задача №39: Найти произведение пар чисел в одномерном массиве. 
-// Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+﻿// Задача №32: Задать массив из 8 элементов, 
+// заполненных нулями и единицами вывести их на экран.
 
-Console.Write("Введите размер массива");
-int N = int.Parse(Console.ReadLine());
-int[] array = new int[N];
+Console.Clear();
+int[] array = new int[8];
 Console.WriteLine();
 Console.Write("Полученный массив: [ ");
-for (int i = 0; i < N; i++)
+for (int i = 0; i < 8; i++)
 {
-    array[i] = new Random().Next(0, 10);
+    array[i] = new Random().Next(0, 2);
     Console.Write(array[i] + " ");
 }
 Console.WriteLine("]");
-Console.WriteLine();
-
-int[] array2 = new int[(N + 1) / 2];
-for (int i = 0; i < array2.Length; i++)
-{
-    array2[i] = array[i] * array[N - i - 1];
-}
-Console.Write("Полученный массив: [ ");
-for (int i = 0; i < array2.Length; i++)
-{
-    Console.Write(array2[i] + " ");
-}
-Console.WriteLine(" ]");

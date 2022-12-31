@@ -1,22 +1,17 @@
-﻿// Задача №38: Найти сумму чисел одномерного массива, стоящих на нечётной позиции.
+﻿// Задача 31: Задать массив из 8 элементов и вывести их на экран.
 
-Console.Write("Введите размер массива: ");
-int N = int.Parse(Console.ReadLine());
-int[] array = new int[N];
+
+Console.Clear();
+int[] array = new int[8];
+for (int i = 0; i < 8; i++)
+{
+    Console.WriteLine($"Введите {i + 1} элемент массива: ");
+    array[i] = int.Parse(Console.ReadLine());
+}
 Console.WriteLine();
 Console.Write("Полученный массив: [ ");
-for (int i = 0; i < N; i++)
+for (int i = 0; i < 8; i++)
 {
-    array[i] = new Random().Next(0, 10);
     Console.Write(array[i] + " ");
 }
 Console.WriteLine("]");
-Console.WriteLine();
-
-int summ = 0;
-
-for (int i = 1; i < N; i += 2)
-{
-    summ += array[i];
-}
-Console.WriteLine($"Сумма чисел одномерного массива, стоящих на нечётной позиции равна: {summ}");

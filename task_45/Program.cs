@@ -1,35 +1,18 @@
-﻿// Задача №52: В двумерном массиве заменить элементы, у которых оба индекса чётные на их квадраты
+﻿// Задача №45: Показать числа Фибоначчи.
 
-Console.Write("Введите количество строк: ");
-int m = int.Parse(Console.ReadLine());
-Console.Write("Введите количество столбцов: ");
-int n = int.Parse(Console.ReadLine());
-int[,] array = new int[m, n];
-Console.WriteLine();
-for (int i = 0; i < m; i++)
-{
-    for (int j = 0; j < n; j++)
-    {
-        array[i, j] = new Random().Next(0, 10);
-        Console.Write(array[i, j] + "\t");
-    }
-    Console.WriteLine();
-}
-Console.WriteLine();
 
-for (int i = 0; i < m; i += 2)
+Console.Write("Сколько чисел показать из ряда Фибоначчи,но не более 46? ");
+int count = int.Parse(Console.ReadLine());
+int first = 1;
+int second = 1;
+Console.Write(" " + first);
+Console.Write(" " + second);
+int sum = 0;
+for (int i = 0; i < count - 2; i++)
 {
-    for (int j = 0; j < n; j += 2)
-    {
-        array[i, j] = array[i, j] * array[i, j];
-    }
+    sum = first + second;
+    Console.Write(" " + sum);
+    first = second;
+    second = sum;
 }
-
-for (int i = 0; i < m; i++)
-{
-    for (int j = 0; j < n; j++)
-    {
-        Console.Write(array[i, j] + "\t");
-    }
-    Console.WriteLine();
-}
+Console.WriteLine("\n");

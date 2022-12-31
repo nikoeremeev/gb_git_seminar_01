@@ -1,12 +1,10 @@
-﻿// Задача №32: Задать массив из 8 элементов, заполненных нулями и единицами вывести их на экран.
+﻿// Задача №25: Найти сумму чисел от 1 до А.
 
-Console.Clear();
-int [] array = new int [8];
-Console.WriteLine();
-Console.Write("Полученный массив: [ ");
-for (int i = 0; i < 8; i++)
+Console.Write("Введите число A = ");
+int A = int.Parse(Console.ReadLine());
+int sum = 0;
+for (int i = 1; i <= A; i++)
 {
-    array[i] = new Random().Next(0,2);
-    Console.Write(array[i] + " ");
+    sum += i;
 }
-Console.WriteLine("]");
+Console.Write("сумму чисел от 1 до А = " + sum);

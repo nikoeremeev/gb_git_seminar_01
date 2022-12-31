@@ -1,20 +1,15 @@
-﻿// Задача №30: Показать кубы чисел, заканчивающихся на четную цифру.
+﻿// Задача №23: Показать таблицу квадратов чисел от 1 до N.
 
-Console.Clear();
-Console.Write("Введите число чисел, у которых кубы чисел, заканчивающихся на четную цифру = ");
+Console.Write("Введите число N = ");
 int N = int.Parse(Console.ReadLine());
-int count = 0;
-int i = 1;
-
-Console.WriteLine();
-Console.Write("Кубы чисел, заканчивающихся на четную цифру: ");
-while (count < N)
+Console.Write("Числа" + "\t\t");
+for (int i = 1; i <= N; i++)
 {
-    if (((i * i * i) % 10) % 2 == 0)
-    {
-        count++;
-        Console.Write(i * i * i + " ");
-        i++;
-    }
-    else i++;
+    Console.Write(i + "\t");
+}
+Console.WriteLine();
+Console.Write("Квадраты" + "\t");
+for (int i = 1; i <= N; i++)
+{
+    Console.Write(i * i + "\t");
 }

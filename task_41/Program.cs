@@ -1,17 +1,21 @@
-﻿// Задача №48: Показать двумерный массив размером m×n заполненный целыми числами.
+﻿/*
+Задача №41: Выяснить являются ли три числа сторонами треугольника. 
+Решение: неравенство треугольника: если есть три числа a,b,c, 
+то они являются сторонами треугольника если (a+b) > c и (b+c) > a и (a+c) > b
+*/
 
-Console.Write("Введите количество строк: ");
-int m = int.Parse(Console.ReadLine());
-Console.Write("Введите количество столбцов: ");
-int n = int.Parse(Console.ReadLine());
-int[,] array = new int[m,n];
+Console.Write("Введите первое число: ");
+int a = int.Parse(Console.ReadLine());
+Console.Write("Введите второе число: ");
+int b = int.Parse(Console.ReadLine());
+Console.Write("Введите третье число: ");
+int c = int.Parse(Console.ReadLine());
 
-for (int i = 0; i < m; i++)
+if ((a + b) > c && (b + c) > a && (a + c) > b)
 {
-    for (int j = 0; j < n; j++)
-    {
-        array[i,j] = new Random().Next(0,10);
-        Console.Write(array[i,j] + " ");
-    }
-    Console.WriteLine();
+    Console.WriteLine("Заданные числа являются сторонами треугольника.");
+}
+else
+{
+    Console.WriteLine("Заданные числа НЕ МОГУТ быть сторонами треугольника.");
 }

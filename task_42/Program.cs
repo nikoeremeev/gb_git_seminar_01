@@ -1,17 +1,12 @@
-﻿// Задача №49: Показать двумерный массив размером m×n, заполненный вещественными числами.
+﻿// Задача №42: Определить, сколько чисел больше 0 введено с клавиатуры.
 
-Console.Write("Введите количество строк: ");
-int m = int.Parse(Console.ReadLine());
-Console.Write("Введите количество столбцов: ");
-int n = int.Parse(Console.ReadLine());
-double[,] array = new double[m,n];
-
-for (int i = 0; i < m; i++)
+Console.Write("Введите через пробел числа: ");
+string numbers = Console.ReadLine();
+string[] numbers_array = numbers.Split(' ');
+int count = 0;
+for (int i = 0; i < numbers_array.Length; i++)
 {
-    for (int j = 0; j < n; j++)
-    {
-        array[i,j] = Math.Round(new Random().Next(0,10) * 1.01, 2);
-        Console.Write(array[i,j] + "\t");
-    }
-    Console.WriteLine();
+    if (int.Parse(numbers_array[i]) > 0) count++;
 }
+Console.WriteLine($"Количество чисел больше 0 введенных с" +
+    " клавиатуры равно {count}.");

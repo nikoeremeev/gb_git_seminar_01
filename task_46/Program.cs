@@ -1,33 +1,22 @@
-﻿// Задача №53: В двумерном массиве показать позиции числа, заданного пользователем, или указать, что такого элемента нет.
+﻿// Задача №46: Написать программу масштабирования фигуры.
 
-Console.Write("Введите количество строк: ");
-int m = int.Parse(Console.ReadLine());
-Console.Write("Введите количество столбцов: ");
-int n = int.Parse(Console.ReadLine());
-Console.Write("Введите число для поиска: ");
-int number = int.Parse(Console.ReadLine());
-int[,] array = new int[m, n];
+Console.Write("Введите через пробел координаты фигуры " +
+    "(Например, (2,1) (0,0) (2,3) (1,2)): ");
+string[] coordintes = Console.ReadLine().Split(" ");
+Console.Write("Введите масштабный коэффициент: ");
+double m = double.Parse(Console.ReadLine());
+for (int i = 0; i < coordintes.Length; i++) Console.Write(coordintes[i] + " ");
 Console.WriteLine();
-for (int i = 0; i < m; i++)
+double[] StrToDoubleCoordinate = new double[coordintes.Length * 2];
+for (int i = 0, j = 0; i < coordintes.Length; i++, j += 2)
 {
-    for (int j = 0; j < n; j++)
-    {
-        array[i, j] = new Random().Next(0, 10);
-        Console.Write(array[i, j] + "\t");
-    }
-    Console.WriteLine();
+    string[] temp = coordintes[i].Split('(', ',', ')');
+    StrToDoubleCoordinate[j] = Math.Round((double.Parse(temp[1])) * m, 2);
+    StrToDoubleCoordinate[j + 1] = Math.Round((double.Parse(temp[2])) * m, 2);
 }
-Console.WriteLine();
-bool flag = true;
-for (int i = 0; i < m; i++)
+Console.Write("Полученные координаты фигуры: ");
+for (int i = 0, j = 0; i < coordintes.Length; i++, j += 2)
 {
-    for (int j = 0; j < n; j++)
-    {
-        if (array[i,j] == number)
-        {
-            flag = false;
-            Console.Write($"({i},{j})  ");
-        }
-    }
+    Console.Write($"({StrToDoubleCoordinate[j]};" +
+        $"{StrToDoubleCoordinate[j + 1]}) ");
 }
-if (flag)  Console.WriteLine("Такого элемента нет.");

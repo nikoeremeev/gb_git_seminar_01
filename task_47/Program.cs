@@ -1,26 +1,26 @@
-﻿// Задача №54: В матрице чисел найти сумму элементов главной диагонали.
+﻿// Задача №47: Написать программу копирования массива.
 
-Console.Write("Введите количество строк: ");
-int m = int.Parse(Console.ReadLine());
-Console.Write("Введите количество столбцов: ");
-int n = int.Parse(Console.ReadLine());
-int[,] array = new int[m, n];
-Console.WriteLine();
-for (int i = 0; i < m; i++)
+int[] array_1 = new int[20];
+int[] array_2 = new int[array_1.Length];
+
+void FillArray(int[] massive) //заполняем первый массив числами
 {
-    for (int j = 0; j < n; j++)
+    for (int i = 0; i < massive.Length; i++)
     {
-        array[i, j] = new Random().Next(0, 10);
-        Console.Write(array[i, j] + "\t");
+        massive[i] = new Random().Next(1, 10001);
     }
-    Console.WriteLine();
 }
-Console.WriteLine();
-int summ = 0;
-int size = n;
-if (m < n) size = m;
-for (int i = 0; i < size; i++)
+void PrintArray(int[] massive) //метод печати массива
 {
-    summ += array[i, i];
+    for (int i = 0; i < massive.Length; i++) Console.Write($"{massive[i]}  ");
 }
-Console.Write($"Сумма элементов главной диагонали равна {summ}");
+void CopyArray(int[] arr, int[] mass)  //метод копирования массива
+{
+    for (int i = 0; i < arr.Length; i++) mass[i] = arr[i];
+}
+FillArray(array_1);
+Console.WriteLine("Первоначально заданный массив:");
+PrintArray(array_1);
+CopyArray(array_1, array_2);
+Console.WriteLine("\nСкопированный массив:");
+PrintArray(array_2);

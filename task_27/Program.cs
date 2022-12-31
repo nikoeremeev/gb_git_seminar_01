@@ -1,27 +1,19 @@
-﻿// Задача №34: Написать программу замену элементов массива на противоположные.
+﻿// Задача №27: Определить количество цифр в числе.
 
-Console.Write("Введите размер массива");
-int N = int.Parse(Console.ReadLine());
-int[] array = new int[N];
-Console.WriteLine();
-Console.Write("Полученный массив: [ ");
-for (int i = 0; i < N; i++)
-{
-    array[i] = new Random().Next(0, 10);
-    Console.Write(array[i] + " ");
-}
-Console.WriteLine("]");
-Console.WriteLine();
+Console.Write("Введите число = ");
+int num = int.Parse(Console.ReadLine());
 
-for (int i = 0; i < (N + 1) / 2; i++)
+int count = 0;
+if (num == 0)
 {
-    int temp = array[N - i - 1];
-    array[N - i - 1] = array[i];
-    array[i] = temp;
+    count = 1;
 }
-Console.Write("Полученный массив: [ ");
-for (int i = 0; i < array.Length; i++)
+else
 {
-    Console.Write(array[i] + " ");
+    while (num != 0)
+    {
+        count++;
+        num /= 10;
+    }
 }
-Console.WriteLine(" ]");
+Console.Write("количество цифр в числе = " + count);

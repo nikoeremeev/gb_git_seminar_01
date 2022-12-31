@@ -1,32 +1,13 @@
-﻿// Задача №35: Определить, присутствует ли в заданном массиве, некоторое число.
+﻿// Задача №28: Подсчитать сумму цифр в числе.
 
-Console.Clear();
-Console.Write("Введите число: ");
-int N = int.Parse(Console.ReadLine());
-int [] array = new int [12];
-Console.WriteLine();
-Console.Write("Полученный массив: [ ");
-for (int i = 0; i < 10; i++)
+Console.Write("Введите число = ");
+int num = int.Parse(Console.ReadLine());
+int sum = 0;
+
+while (num != 0)
 {
-    array[i] = new Random().Next(0,10);
-    Console.Write(array[i] + " ");
+    sum += num % 10;
+    num /= 10;
 }
-Console.WriteLine("]");
-Console.WriteLine();
-bool flag = false;
-for (int i = 0; i < 10; i++)
-{
-    if (array[i] == N)
-    {
-        flag = true;
-    }
-    
-}
-if (flag)
-{
-    Console.WriteLine("Встречается.");
-}
-else
-{
-    Console.WriteLine("НЕ встречается.");
-}
+if (sum < 0) Console.Write("Сумма цифр в числе = " + sum * (-1));
+else Console.Write("Сумма цифр в числе = " + sum);

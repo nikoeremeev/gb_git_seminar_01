@@ -1,22 +1,20 @@
-﻿// Задача №37: В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99].
+﻿// Задача №30: Показать кубы чисел, заканчивающихся на четную цифру.
 
 Console.Clear();
-int[] array = new int[123];
-Console.WriteLine();
-Console.Write("Полученный массив: [ ");
-for (int i = 0; i < 123; i++)
-{
-    array[i] = new Random().Next(0, 200);
-    Console.Write(array[i] + " ");
-}
-Console.WriteLine("]");
-Console.WriteLine();
+Console.Write("Введите число чисел, у которых кубы чисел, заканчивающихся на четную цифру = ");
+int N = int.Parse(Console.ReadLine());
 int count = 0;
-for (int i = 0; i < 123; i++)
+int i = 1;
+
+Console.WriteLine();
+Console.Write("Кубы чисел, заканчивающихся на четную цифру: ");
+while (count < N)
 {
-    if ((10 <= array[i]) && (array[i] <= 99))
+    if (((i * i * i) % 10) % 2 == 0)
     {
         count++;
+        Console.Write(i * i * i + " ");
+        i++;
     }
+    else i++;
 }
-Console.WriteLine("Элементы из отрезка [10,99] встречаются " + count + " раз");

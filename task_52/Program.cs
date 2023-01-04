@@ -1,35 +1,36 @@
-﻿// Задача №59: В прямоугольной матрице найти строку с наименьшей суммой элементов.
+﻿// Задача №52: В двумерном массиве заменить элементы, 
+// у которых оба индекса чётные на их квадраты
 
-Console.Write("Введите размерность матрицы n*n: ");
+Console.Write("Введите количество строк: ");
+int m = int.Parse(Console.ReadLine());
+Console.Write("Введите количество столбцов: ");
 int n = int.Parse(Console.ReadLine());
-int[,] array = new int[n, n];
+int[,] array = new int[m, n];
 Console.WriteLine();
-Console.WriteLine("Исходная матрица:");
-for (int i = 0; i < n; i++)
+for (int i = 0; i < m; i++)
 {
     for (int j = 0; j < n; j++)
     {
-        array[i, j] = new Random().Next(0, 100);
+        array[i, j] = new Random().Next(0, 10);
         Console.Write(array[i, j] + "\t");
     }
     Console.WriteLine();
 }
 Console.WriteLine();
 
-int minimum = (int)Math.Pow(2, 16);
-int row = 0;
-for (int i = 0; i < n; i++)
+for (int i = 0; i < m; i += 2)
 {
-    int summ = 0;
-    for (int j = 0; j < n; j++)
+    for (int j = 0; j < n; j += 2)
     {
-        summ += array[i, j];
-    }
-    if (summ < minimum)
-    {
-        minimum = summ;
-        row = i;
+        array[i, j] = array[i, j] * array[i, j];
     }
 }
-Console.WriteLine();
-Console.WriteLine("Номер строки с наименьшей суммой элементов (отсчет от нуля!): " + row);
+
+for (int i = 0; i < m; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        Console.Write(array[i, j] + "\t");
+    }
+    Console.WriteLine();
+}

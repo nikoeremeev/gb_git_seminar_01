@@ -1,10 +1,12 @@
-﻿// Задача №60 Составить частотный словарь элементов двумерного массива.
-// Частотный словарь содержит информацию о том, сколько раз встречается элемент входных данных.
+﻿// Задача №53: В двумерном массиве показать позиции числа, 
+// заданного пользователем, или указать, что такого элемента нет.
 
 Console.Write("Введите количество строк: ");
 int m = int.Parse(Console.ReadLine());
 Console.Write("Введите количество столбцов: ");
 int n = int.Parse(Console.ReadLine());
+Console.Write("Введите число для поиска: ");
+int number = int.Parse(Console.ReadLine());
 int[,] array = new int[m, n];
 Console.WriteLine();
 for (int i = 0; i < m; i++)
@@ -17,16 +19,16 @@ for (int i = 0; i < m; i++)
     Console.WriteLine();
 }
 Console.WriteLine();
-for (int k = 0; k < 10; k++)
+bool flag = true;
+for (int i = 0; i < m; i++)
 {
-    int count = 0;
-    for (int i = 0; i < m; i++)
+    for (int j = 0; j < n; j++)
     {
-        for (int j = 0; j < n; j++)
+        if (array[i, j] == number)
         {
-            if (array[i,j] == k) count++;
+            flag = false;
+            Console.Write($"({i},{j})  ");
         }
     }
-    if (count != 0) Console.WriteLine($"{k} встречается {count} раза");
 }
-
+if (flag) Console.WriteLine("Такого элемента нет.");

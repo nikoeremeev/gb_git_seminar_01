@@ -1,4 +1,5 @@
-﻿// Задача №62 В двумерном массиве целых чисел. Удалить строку и столбец, на пересечении которых расположен наименьший элемент.
+﻿// Задача №55: Дан целочисленный массив. 
+// Найти среднее арифметическое каждого из столбцов.
 
 Console.Write("Введите количество строк: ");
 int m = int.Parse(Console.ReadLine());
@@ -16,33 +17,12 @@ for (int i = 0; i < m; i++)
     Console.WriteLine();
 }
 Console.WriteLine();
-int minimal = array[0, 0];
-int row = 0, col = 0;
-for (int i = 0; i < m; i++)
+for (int j = 0; j < n; j++)
 {
-    for (int j = 0; j < n; j++)
+    double average = 0;
+    for (int i = 0; i < m; i++)
     {
-        if (array[i, j] < minimal)
-        {
-            minimal = array[i, j];
-            col = i;
-            row = j;
-        }
+        average = average + array[i, j];
     }
-}
-for (int i = 0; i < m; i++)
-{
-    if (col == i) continue;
-    else
-    {
-        for (int j = 0; j < n; j++)
-        {
-            if (row == j) continue;
-            else
-            {
-                Console.Write(array[i, j] + "\t");
-            }
-        }
-        Console.WriteLine();
-    }
+    Console.Write($"{average / m}" + "\t");
 }

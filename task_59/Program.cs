@@ -1,12 +1,38 @@
-﻿// Задача №66: Показать натуральные числа от 1 до N, N задано.
+﻿// Задача №59: 
+// В прямоугольной матрице найти строку с наименьшей суммой элементов.
 
-void ShowNumbers(int number)
-{
-    if (number < 1) return;
-    ShowNumbers(number - 1);
-    Console.Write(number + " ");
-}
-Console.Write("Введите число N: ");
-int N = int.Parse(Console.ReadLine());
+
+Console.Write("Введите размерность матрицы n*n: ");
+int n = int.Parse(Console.ReadLine());
+int[,] array = new int[n, n];
 Console.WriteLine();
-ShowNumbers(N);
+Console.WriteLine("Исходная матрица:");
+for (int i = 0; i < n; i++)
+{
+    for (int j = 0; j < n; j++)
+    {
+        array[i, j] = new Random().Next(0, 100);
+        Console.Write(array[i, j] + "\t");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();
+
+int minimum = (int)Math.Pow(2, 16);
+int row = 0;
+for (int i = 0; i < n; i++)
+{
+    int summ = 0;
+    for (int j = 0; j < n; j++)
+    {
+        summ += array[i, j];
+    }
+    if (summ < minimum)
+    {
+        minimum = summ;
+        row = i;
+    }
+}
+Console.WriteLine();
+Console.WriteLine("Номер строки с наименьшей суммой элементов " +
+    "(отсчет от нуля!): " + row);

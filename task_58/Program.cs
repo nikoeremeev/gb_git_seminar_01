@@ -1,60 +1,48 @@
 ﻿/*
-Задача №58: 
-Написать программу, которая в двумерном массиве заменяет строки на столбцы или 
-сообщить, что это невозможно (в случае, если матрица не квадратная).
+Задача №58: Написать программу, которая в двумерном массиве заменяет строки
+на столбцы или сообщить, что это невозможно 
+(в случае, если матрица не квадратная).
 */
 
 
-Console.Write("Задайте количество строк в массиве: ");
+Console.Write("Введите количество строк: ");
 int m = int.Parse(Console.ReadLine());
-Console.Write("Задайте количество столбцов в массиве: ");
+Console.Write("Введите количество столбцов: ");
 int n = int.Parse(Console.ReadLine());
-if (m != n)
+int[,] array = new int[m, n];
+Console.WriteLine();
+for (int i = 0; i < m; i++)
 {
-    Console.WriteLine("Задана не квадратная матрица, " +
-        "невозможно выполнить операцию!");
-}
-else
-{
-    int[,] array = new int[m, n];
-
-    void FillArray(int[,] array)
+    for (int j = 0; j < n; j++)
     {
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                array[i, j] = new Random().Next(1, 501);
-            }
-        }
+        array[i, j] = new Random().Next(0, 10);
+        Console.Write(array[i, j] + "\t");
     }
-    void PrintArray(int[,] array)
-    {
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                Console.Write($"{array[i, j]:d3}\t");
-            }
-            Console.WriteLine();
-        }
-    }
-    void ChangeLineColumn(int[,] array)
-    {
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = i + 1; j < array.GetLength(1); j++)
-            {
-                int temp = array[i, j];
-                array[i, j] = array[j, i];
-                array[j, i] = temp;
-            }
-        }
-    }
-    FillArray(array);
-    PrintArray(array);
-    Console.WriteLine("Перевёрнутый массив: ");
-    ChangeLineColumn(array);
-    PrintArray(array);
+    Console.WriteLine();
 }
 Console.WriteLine();
+
+if (m == n)
+{
+    int temp;
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            temp = array[j, i];
+            array[j, i] = array[i, j];
+            array[i, j] = temp;
+        }
+        Console.WriteLine();
+    }
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            Console.Write(array[j, i] + "\t");
+        }
+        Console.WriteLine();
+    }
+}
+else Console.WriteLine("Матрица НЕ квадратная");
+

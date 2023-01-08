@@ -1,18 +1,48 @@
-﻿// Задача №71: Написать программу вычисления функции Аккермана.
+﻿/*
+Задача №64:
+Показать треугольник Паскаля *Сделать вывод в виде равнобедренного треугольника.
+*/
 
-int Akkerman(int M, int N)
+Console.Write("Введите нужное количество строк треугольника Паскаля: ");
+int row = int.Parse(Console.ReadLine());
+int[,] triangle = new int[row, row];
+const int cellWidth = 3;
+
+void FillTriangle()
 {
-    if (M == 0) return N + 1;
-    else 
+    for (int i = 0; i < row; i++)
     {
-        if (N == 0 && M > 0) return Akkerman(M - 1, 1);
-        else return Akkerman(M-1, Akkerman(M, N-1));
+        triangle[i, 0] = 1;
+        triangle[i, i] = 1;
     }
-
+    for (int i = 2; i < row; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            triangle[i, j] = triangle[i - 1, j - 1] + triangle[i - 1, j];
+        }
+    }
 }
-Console.Write("Введите число M: ");
-int M = int.Parse(Console.ReadLine());
-Console.Write("Введите число N: ");
-int N = int.Parse(Console.ReadLine());
+void Magic()
+{
+    int col = cellWidth * row;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            Console.SetCursorPosition(col, i + 1);
+            if (triangle[i, j] != 0)
+            {
+                Console.Write($"{triangle[i, j],cellWidth}");
+            }
+            col += cellWidth * 2;
+        }
+        col = cellWidth * row - cellWidth * (i + 1);
+        Console.WriteLine();
+    }
+}
+
+FillTriangle();
+Magic();
+
 Console.WriteLine();
-Console.WriteLine($"Функция Аккурмана от {M} и {N} равна {Akkerman(M, N)}");

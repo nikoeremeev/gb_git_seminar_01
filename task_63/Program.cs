@@ -1,12 +1,64 @@
-﻿// Задача №70: Найти сумму цифр числа.
+﻿/*
+Задача №63:
+Сформировать трехмерный массив не повторяющимися двузначными числами, 
+показать его построчно на экран, выводя индексы соответствующего элемента
+*/
 
-int SumNumbers(int N)
+
+Console.Write("Задайте размерность массива, но не более 4: ");
+int m = int.Parse(Console.ReadLine());
+if (m <= 4 && m >= 2)
 {
-    if (N == 0) return 0;
-    int last_digit = N % 10;
-    return last_digit + SumNumbers(N / 10);
+    int[,,] array = new int[m, m, m];
+
+    void Print3DArray(int[,,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                for (int k = 0; k < array.GetLength(2); k++)
+                    Console.Write($"(x: {i}, y: {j}, z: {k} элемент: " +
+                        "{array[i, j, k]})  ");
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+    }
+    // проверяем сгенерированное число на оригинальность
+    bool CheckDublicate(int next, int[,,] array)
+    {
+        bool contains = false;
+        for (int a = 0; a < array.GetLength(0); a++)
+            for (int b = 0; b < array.GetLength(1); b++)
+                for (int c = 0; c < array.GetLength(2); c++)
+                    if (array[a, b, c] == next)
+                    {
+                        contains = true;
+                        break;
+                    }
+        return contains;
+    }
+    // заполняем массив случайными числами
+    int[,,] Fill3DArray(int[,,] array)
+    {
+        int next;
+        for (int i = 0; i < array.GetLength(0); i++)
+            for (int j = 0; j < array.GetLength(1); j++)
+                for (int k = 0; k < array.GetLength(2); k++)
+                {
+                    do
+                        next = new Random().Next(10, 100);
+                    while (CheckDublicate(next, array));
+                    array[i, j, k] = next;
+                }
+        return array;
+    }
+    Fill3DArray(array);
+    Print3DArray(array);
 }
-Console.Write("Введите число N: ");
-int K = int.Parse(Console.ReadLine());
-Console.WriteLine();
-Console.WriteLine($"Сумма цифр числа {K} равна {SumNumbers(K)}");
+else
+{
+    Console.WriteLine("Введенное размерность не находится " +
+        "в диапазоне от 2 до 4!");
+}

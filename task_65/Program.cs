@@ -1,13 +1,34 @@
-﻿// Задача №72: Написать программу возведения числа А в целую стень B
+﻿/*
+Задача №65: Спирально заполнить двумерный массив.
+*/
 
-int PowNum(int A, int B)
+
+Console.Write("Введите размерность массива, который будем заполнять: ");
+int n = int.Parse(Console.ReadLine());
+
+int[,] array = new int[n, n];
+int temp = 1;
+int i = 0;
+int j = 0;
+while (temp <= n * n)
 {
-    if (B == 0) return 1;
-    else if (B == 1) return A;
-    return A * PowNum(A, B - 1);
+    array[i, j] = temp;
+    if (i <= j + 1 && i + j < n - 1)
+        ++j;
+    else if (i < j && i + j >= n - 1)
+        ++i;
+    else if (i >= j && i + j > n - 1)
+        --j;
+    else
+        --i;
+    ++temp;
 }
-Console.Write("Введите число A: ");
-int A = int.Parse(Console.ReadLine());
-Console.Write("Введите число B: ");
-int B = int.Parse(Console.ReadLine());
-Console.WriteLine($"Число {A} возведенное в степень {B} равно {PowNum(A, B)}");
+for (int c = 0; c < array.GetLength(0); c++)
+{
+    for (int d = 0; d < array.GetLength(1); d++)
+    {
+        Console.Write($"{array[c, d]:d3} ");
+    }
+    Console.WriteLine();
+}
+Console.WriteLine();

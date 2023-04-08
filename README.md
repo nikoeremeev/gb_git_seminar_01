@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # В данном репозитории находятся решения к [данным задачам](https://github.com/KarpenkoDenis/HelloCode/blob/main/ex.md). Описание задач и соответствие папкам приведено ниже.
 ---
 
@@ -184,3 +185,6 @@ git clone git@github.com:nikoeremeev/C_sharp_learn.git
 
     Задача: найти M при заданном N и получить одно из разбиений на группы N ≤ 10²⁰
 ---
+=======
+# gb_git_seminar_01
+>>>>>>> 009f8d573e8f3ade77c6c8aeb7d0d159b1b23225
